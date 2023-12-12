@@ -10,7 +10,7 @@ $hotels = [
     [
         'name' => 'Hotel Futuro',
         'description' => 'Hotel Futuro Descrizione',
-        'parking' => true,
+        'parking' => false,
         'vote' => 2,
         'distance_to_center' => 2
     ],
@@ -60,6 +60,17 @@ if (isset($_GET['parking'])&&!empty($_GET['parking'])) {
     }
 }
 
+if (isset($_GET['vote'])&&!empty($_GET['vote'])) {
+    $vote = $_GET['vote'];
+    
+    foreach ($my_hotels as $key => $hotel) {
+        if($hotel['vote'] != $vote){
+            unset($my_hotels[$key]);
+        }
+    }
+    
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -82,9 +93,19 @@ if (isset($_GET['parking'])&&!empty($_GET['parking'])) {
         <form action="index.php" method="GET">
             <label for="parking">Parcheggio</label>
             <select name="parking" id="parking">
-                <option value=""></option>
+                <option value="">---</option>
                 <option value="true">Si</option>
                 <option value="false">No</option>
+            </select>
+
+            <label for="vote">Stelle</label>
+            <select name="vote" id="vote">
+                <option value="">---</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
             </select>
 
             <button type="submit">Filtra</button>
