@@ -126,10 +126,10 @@ if (isset($_GET['vote'])&&!empty($_GET['vote'])) {
                 <?php foreach ($my_hotels as $key => $hotel) { ?>
                     <tr>
                         <td><?php echo $hotel['name']; ?></td>
-                        <td><?php echo $hotel['description'] ?></td>
-                        <td><?php echo $hotel['parking'] ?></td>
-                        <td><?php echo $hotel['vote'] ?></td>
-                        <td><?php echo $hotel['distance_to_center'] ?> km</td>
+                        <td><?php echo $hotel['description']; ?></td>
+                        <td><?php echo $hotel['parking']?  "Si" : "No";?></td>
+                        <td><?php echo $hotel['vote']; ?></td>
+                        <td><?php echo $hotel['distance_to_center']; ?> km</td>
                     </tr>
                 <?php } ?>
             </tbody>
